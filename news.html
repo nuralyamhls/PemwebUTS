@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samsung Indonesia - News</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #1428a0;
+      --secondary: #000;
+      --accent: #34c3ff;
+      --light: #f5f5f7;
+      --dark: #121212;
+      --text: #333;
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Samsung Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-color: var(--light);
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    ul {
+      list-style: none;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header Styles */
+    header {
+      background-color: var(--secondary);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      height: 30px;
+      margin-right: 10px;
+    }
+    
+    nav ul {
+      display: flex;
+    }
+    
+    nav li {
+      margin-left: 25px;
+      position: relative;
+    }
+    
+    nav a {
+      font-weight: 500;
+      padding: 5px 0;
+      transition: var(--transition);
+    }
+    
+    nav a:hover {
+      color: var(--accent);
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--accent);
+      transition: var(--transition);
+    }
+    
+    nav a:hover::after {
+      width: 100%;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    /* Page Header */
+    .page-header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+    }
+    
+    .page-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+    
+    .page-header p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    
+    /* News Filter */
+    .news-filter {
+      background-color: white;
+      padding: 20px 0;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 60px;
+      z-index: 100;
+    }
+    
+    .filter-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    
+    .filter-tabs {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    
+    .filter-tab {
+      padding: 8px 20px;
+      border-radius: 30px;
+      background-color: var(--light);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .filter-tab.active {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .filter-tab:hover:not(.active) {
+      background-color: #e0e0e0;
+    }
+    
+    .search-box {
+      display: flex;
+      align-items: center;
+      background-color: var(--light);
+      border-radius: 30px;
+      padding: 5px 15px;
+      width: 250px;
+    }
+    
+    .search-box input {
+      border: none;
+      background: none;
+      outline: none;
+      padding: 8px 10px;
+      width: 100%;
+    }
+    
+    .search-box button {
+      background: none;
+      border: none;
+      color: var(--primary);
+      cursor: pointer;
+    }
+    
+    /* News Section */
+    .news-section {
+      padding: 60px 0;
+    }
+    
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+    }
+    
+    .news-card {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+    
+    .news-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .news-img {
+      height: 200px;
+      overflow: hidden;
+    }
+    
+    .news-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    
+    .news-card:hover .news-img img {
+      transform: scale(1.05);
+    }
+    
+    .news-content {
+      padding: 20px;
+    }
+    
+    .news-category {
+      display: inline-block;
+      padding: 5px 15px;
+      background-color: var(--accent);
+      color: white;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+    }
+    
+    .news-title {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: var(--secondary);
+      transition: var(--transition);
+    }
+    
+    .news-card:hover .news-title {
+      color: var(--primary);
+    }
+    
+    .news-excerpt {
+      margin-bottom: 15px;
+      color: #666;
+    }
+    
+    .news-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #888;
+      font-size: 0.9rem;
+    }
+    
+    .news-date {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .read-more {
+      color: var(--primary);
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    
+    .read-more:hover {
+      color: var(--accent);
+    }
+    
+    /* Featured News */
+    .featured-news {
+      margin-bottom: 50px;
+    }
+    
+    .featured-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .featured-img {
+      height: 100%;
+    }
+    
+    .featured-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .featured-content {
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .featured-category {
+      display: inline-block;
+      padding: 5px 15px;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-bottom: 15px;
+    }
+    
+    .featured-title {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: var(--secondary);
+    }
+    
+    .featured-excerpt {
+      margin-bottom: 20px;
+      color: #666;
+    }
+    
+    .featured-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #888;
+      margin-bottom: 20px;
+    }
+    
+    .btn {
+      display: inline-block;
+      background-color: var(--primary);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: var(--transition);
+      align-self: flex-start;
+    }
+    
+    .btn:hover {
+      background-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Pagination */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+      gap: 10px;
+    }
+    
+    .page-item {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: white;
+      color: var(--text);
+      font-weight: 500;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    
+    .page-item.active {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .page-item:hover:not(.active) {
+      background-color: #e0e0e0;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--secondary);
+      color: white;
+      padding: 60px 0 20px;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    
+    .footer-column h3 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 40px;
+      height: 2px;
+      background-color: var(--accent);
+    }
+    
+    .footer-column ul li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-column a {
+      opacity: 0.8;
+      transition: var(--transition);
+    }
+    
+    .footer-column a:hover {
+      opacity: 1;
+      color: var(--accent);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      transition: var(--transition);
+    }
+    
+    .social-links a:hover {
+      background-color: var(--accent);
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+    
+    /* Newsletter */
+    .newsletter {
+      display: flex;
+      margin-top: 20px;
+    }
+    
+    .newsletter input {
+      flex: 1;
+      padding: 12px 15px;
+      border: none;
+      border-radius: 30px 0 0 30px;
+      outline: none;
+    }
+    
+    .newsletter button {
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      padding: 0 20px;
+      border-radius: 0 30px 30px 0;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .newsletter button:hover {
+      background-color: #2aa8e0;
+    }
+    
+    /* Back to top button */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--primary);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 999;
+    }
+    
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      background-color: var(--accent);
+    }
+    
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: var(--primary);
+      color: white;
+      padding: 15px 25px;
+      border-radius: 5px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      z-index: 1000;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.5s ease;
+    }
+    
+    .toast.active {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .featured-card {
+        grid-template-columns: 1fr;
+      }
+      
+      .featured-img {
+        height: 300px;
+      }
+      
+      .featured-content {
+        padding: 30px;
+      }
+      
+      .featured-title {
+        font-size: 1.8rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .header-container {
+        padding: 10px 0;
+      }
+      
+      nav ul {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--secondary);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      
+      nav ul.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      nav li {
+        margin: 15px 0;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .page-header {
+        padding: 40px 0;
+      }
+      
+      .page-header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .filter-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .search-box {
+        width: 100%;
+      }
+      
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .page-header h1 {
+        font-size: 1.6rem;
+      }
+      
+      .featured-title {
+        font-size: 1.5rem;
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung Logo">
+      </a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav>
+        <ul id="navMenu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="news.html" class="active">News</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-header">
+    <div class="container">
+      <h1>Berita & Artikel</h1>
+      <p>Dapatkan informasi terbaru tentang produk, teknologi, dan kegiatan Samsung di Indonesia</p>
+    </div>
+  </section>
+
+  <section class="news-filter">
+    <div class="container filter-container">
+      <div class="filter-tabs">
+        <div class="filter-tab active" data-category="all">Semua</div>
+        <div class="filter-tab" data-category="product">Produk</div>
+        <div class="filter-tab" data-category="technology">Teknologi</div>
+        <div class="filter-tab" data-category="event">Event</div>
+        <div class="filter-tab" data-category="csr">CSR</div>
+      </div>
+      <div class="search-box">
+        <input type="text" placeholder="Cari berita..." id="searchInput">
+        <button id="searchBtn"><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="news-section">
+    <div class="container">
+      <div class="featured-news">
+        <div class="featured-card">
+          <div class="featured-img">
+            <img src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Samsung Galaxy S25 Ultra">
+          </div>
+          <div class="featured-content">
+            <span class="featured-category">Produk</span>
+            <h2 class="featured-title">Samsung Resmi Meluncurkan Galaxy S25 Ultra di Indonesia</h2>
+            <p class="featured-excerpt">Samsung Electronics Indonesia secara resmi meluncurkan Galaxy S25 Ultra, smartphone premium terbaru dengan teknologi kamera 200MP dan kemampuan AI yang revolusioner.</p>
+            <div class="featured-meta">
+              <span class="news-date"><i class="far fa-calendar-alt"></i> 10 Mei 2025</span>
+              <span><i class="far fa-eye"></i> 1.5K Views</span>
+            </div>
+            <a href="#" class="btn">Baca Selengkapnya</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="news-grid">
+        <div class="news-card" data-category="technology">
+          <div class="news-img">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Samsung AI">
+          </div>
+          <div class="news-content">
+            <span class="news-category">Teknologi</span>
+            <h3 class="news-title">Samsung Kembangkan Teknologi AI untuk Smartphone</h3>
+            <p class="news-excerpt">Samsung Electronics mengumumkan pengembangan teknologi kecerdasan buatan terbaru yang akan diintegrasikan ke dalam smartphone Galaxy series.</p>
+            <div class="news-meta">
+              <span class="news-date"><i class="far fa-calendar-alt"></i> 5 Mei 2025</span>
+              <a href="#" class="read-more">Baca Selengkapnya</a>
+            </div>
+          </div>
+        </div>
+        <div class="news-card" data-category="product">
+          <div class="news-img">
+            <img src="https://images.unsplash.com/photo-1659945563337-3f537a1d1f3c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Galaxy Z Fold 7">
+          </div>
+          <div class="news-content">
+            <span class="news-category">Produk</span>
+            <h3 class="news-title">Galaxy Z Fold 7 Hadir dengan Layar yang Lebih Tahan Lama</h3>
+            <p class="news-excerpt">Samsung memperkenalkan Galaxy Z Fold 7 dengan teknologi layar fleksibel terbaru yang lebih tahan lama dan tahan gores.</p>
+            <div class="news-meta">
+              <span class="news-date"><i class="far fa-calendar-alt"></i> 28 April 2025</span>
+              <a href="#" class="read-more">Baca Selengkapnya</a>
+            </div>
+          </div>
+        </div>
+        <div class="news-card" data-category="event">
+          <div class="news-img">
+            <img src="https://images.unsplash.com/photo-1540317580384-e5d43867caa6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Samsung Developer Conference">
+          </div>
+          <div class="news-content">
+            <span class="news-category">Event</span>
+            <h3 class="news-title">Samsung Developer Conference 2025 Akan Digelar di Jakarta</h3>
+            <p class="news-excerpt">Samsung Electronics Indonesia akan menggelar Samsung Developer Conference 2025 di Jakarta pada bulan Juni mendatang.</p>
+            <div class="news-meta">
+              <span class="news-date"><i class="far fa-calendar-alt"></i> 20 April 2025</span>
+              <a href="#" class="read-more">Baca Selengkapnya</a>
+            </div>
+          </div>
+        </div>
+        <div class="news-card" data-category="csr">
+          <div class="news-img">
+            <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Samsung CSR">
+          </div>
+          <div class="news-content">
+            <span class="news-category">CSR</span>
+            <h3 class="news-title">Samsung Luncurkan Program Pendidikan Teknologi untuk Remaja</h3>
+            <p class="news-excerpt">Samsung Electronics Indonesia meluncurkan program pendidikan teknologi untuk remaja di seluruh Indonesia sebagai bagian dari komitmen CSR perusahaan.</p>
+            <div class="news-meta">
+              <span class="news-date"><i class="far fa-calendar-alt"></i> 15 April 2025</span>
+              <a href="#" class="read-more">Baca Selengkapnya</a>
+            </div>
+          </div>
+        </div>
+        <div class="news-card" data-category="product">
+          <div class="news-img">
+            <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Galaxy Watch 7">
+          </div>
+          <div class="news-content">
+            <span class="news-category">Produk</span>
+            <h3 class="news-title">Galaxy Watch 7 Hadir dengan Fitur Kesehatan Terbaru</h3>
+            <p class="news-excerpt">Samsung meluncurkan Galaxy Watch 7 dengan fitur pemantauan kesehatan terbaru, termasuk pengukuran tekanan darah dan deteksi sleep apnea.</p>
+            <div class="news-meta">
+              <span class="news-date"><i class="far fa-calendar-alt"></i> 10 April 2025</span>
+              <a href="#" class="read-more">Baca Selengkapnya</a>
+            </div>
+          </div>
+        </div>
+        <div class="news-card" data-category="technology">
+          <div class="news-img">
+            <img src="https://images.unsplash.com/photo-1601944179066-29b8f7e31d3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Samsung Neo QLED">
+          </div>
+          <div class="news-content">
+            <span class="news-category">Teknologi</span>
+            <h3 class="news-title">Samsung Perkenalkan Teknologi Neo QLED Generasi Terbaru</h3>
+            <p class="news-excerpt">Samsung Electronics memperkenalkan teknologi Neo QLED generasi terbaru dengan kualitas gambar yang lebih baik dan konsumsi daya yang lebih efisien.</p>
+            <div class="news-meta">
+              <span class="news-date"><i class="far fa-calendar-alt"></i> 5 April 2025</span>
+              <a href="#" class="read-more">Baca Selengkapnya</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagination">
+        <div class="page-item active">1</div>
+        <div class="page-item">2</div>
+        <div class="page-item">3</div>
+        <div class="page-item">4</div>
+        <div class="page-item"><i class="fas fa-ellipsis-h"></i></div>
+        <div class="page-item">10</div>
+        <div class="page-item"><i class="fas fa-chevron-right"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Samsung Indonesia</h3>
+          <p>Samsung Electronics Indonesia adalah perusahaan elektronik terkemuka yang menyediakan produk inovatif untuk konsumen Indonesia.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>Produk</h3>
+          <ul>
+            <li><a href="#">Smartphone</a></li>
+            <li><a href="#">Tablet</a></li>
+            <li><a href="#">TV & Audio</a></li>
+            <li><a href="#">Home Appliances</a></li>
+            <li><a href="#">Monitors</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">Pusat Bantuan</a></li>
+            <li><a href="#">Service Center</a></li>
+            <li><a href="#">Download</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Kontak</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Berlangganan</h3>
+          <p>Dapatkan informasi terbaru tentang produk dan promo Samsung</p>
+          <div class="newsletter">
+            <input type="email" placeholder="Email Anda" id="newsletterEmail">
+            <button id="newsletterSubmit"><i class="fas fa-paper-plane"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; 2025 Samsung Indonesia. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Back to Top Button
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('active');
+      } else {
+        backToTopBtn.classList.remove('active');
+      }
+    });
+    
+    backToTopBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // Toast Notification Function
+    function showToast(message, duration = 5000) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('active');
+      
+      setTimeout(() => {
+        toast.classList.remove('active');
+      }, duration);
+    }
+    
+    // Newsletter Subscription
+    const newsletterSubmit = document.getElementById('newsletterSubmit');
+    const newsletterEmail = document.getElementById('newsletterEmail');
+    
+    newsletterSubmit.addEventListener('click', () => {
+      if (newsletterEmail.value.trim() !== '' && newsletterEmail.value.includes('@')) {
+        showToast('Terima kasih telah berlangganan newsletter kami!');
+        newsletterEmail.value = '';
+      } else {
+        showToast('Silakan masukkan alamat email yang valid.');
+      }
+    });
+    
+    // News Filter
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    const newsCards = document.querySelectorAll('.news-card');
+    
+    filterTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Remove active class from all tabs
+        filterTabs.forEach(t => t.classList.remove('active'));
+        
+        // Add active class to clicked tab
+        tab.classList.add('active');
+        
+        const category = tab.dataset.category;
+        
+        // Filter news cards
+        newsCards.forEach(card => {
+          if (category === 'all' || card.dataset.category === category) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+        
+        showToast(`Menampilkan berita kategori: ${category === 'all' ? 'Semua' : tab.textContent}`);
+      });
+    });
+    
+    // Search Functionality
+    const searchBtn = document.getElementById('searchBtn');
+    const searchInput = document.getElementById('searchInput');
+    
+    searchBtn.addEventListener('click', () => {
+      const searchTerm = searchInput.value.toLowerCase().trim();
+      
+      if (searchTerm === '') {
+        showToast('Silakan masukkan kata kunci pencarian.');
+        return;
+      }
+      
+      let found = false;
+      
+      newsCards.forEach(card => {
+        const title = card.querySelector('.news-title').textContent.toLowerCase();
+        const excerpt = card.querySelector('.news-excerpt').textContent.toLowerCase();
+        
+        if (title.includes(searchTerm) || excerpt.includes(searchTerm)) {
+          card.style.display = 'block';
+          found = true;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      
+      if (found) {
+        showToast(`Menampilkan hasil pencarian untuk: "${searchTerm}"`);
+      } else {
+        showToast(`Tidak ada hasil untuk pencarian: "${searchTerm}"`);
+        // Reset to show all
+        newsCards.forEach(card => {
+          card.style.display = 'block';
+        });
+      }
+    });
+    
+    // Enter key for search
+    searchInput.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') {
+        searchBtn.click();
+      }
+    });
+    
+    // Pagination
+    const pageItems = document.querySelectorAll('.page-item');
+    
+    pageItems.forEach(item => {
+      item.addEventListener('click', () => {
+        if (!item.classList.contains('active') && !item.querySelector('.fa-ellipsis-h') && !item.querySelector('.fa-chevron-right')) {
+          pageItems.forEach(p => p.classList.remove('active'));
+          item.classList.add('active');
+          showToast(`Menampilkan halaman ${item.textContent}`);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+    });
+    
+    // Read More Links
+    const readMoreLinks = document.querySelectorAll('.read-more, .btn');
+    
+    readMoreLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const newsTitle = link.closest('.news-content')?.querySelector('.news-title')?.textContent || 
+                         link.closest('.featured-content')?.querySelector('.featured-title')?.textContent || 
+                         'artikel';
+        showToast(`Membuka artikel: ${newsTitle}`);
+      });
+    });
+    
+    // Welcome Message
+    document.addEventListener('DOMContentLoaded', () => {
+      showToast('Selamat datang di halaman Berita Samsung Indonesia!');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samsung Indonesia - Contact Us</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #1428a0;
+      --secondary: #000;
+      --accent: #34c3ff;
+      --light: #f5f5f7;
+      --dark: #121212;
+      --text: #333;
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Samsung Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-color: var(--light);
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    ul {
+      list-style: none;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header Styles */
+    header {
+      background-color: var(--secondary);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      height: 30px;
+      margin-right: 10px;
+    }
+    
+    nav ul {
+      display: flex;
+    }
+    
+    nav li {
+      margin-left: 25px;
+      position: relative;
+    }
+    
+    nav a {
+      font-weight: 500;
+      padding: 5px 0;
+      transition: var(--transition);
+    }
+    
+    nav a:hover {
+      color: var(--accent);
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--accent);
+      transition: var(--transition);
+    }
+    
+    nav a:hover::after {
+      width: 100%;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    /* Page Header */
+    .page-header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+    }
+    
+    .page-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+    
+    .page-header p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    
+    /* Contact Section */
+    .contact-section {
+      padding: 80px 0;
+      background-color: white;
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+    
+    .contact-info h2 {
+      font-size: 2rem;
+      color: var(--secondary);
+      margin-bottom: 30px;
+    }
+    
+    .contact-info p {
+      margin-bottom: 30px;
+    }
+    
+    .contact-details {
+      margin-bottom: 30px;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background-color: var(--light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 1.2rem;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+    
+    .contact-text h3 {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+      color: var(--secondary);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--light);
+      color: var(--primary);
+      transition: var(--transition);
+    }
+    
+    .social-links a:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+    }
+    
+    /* Contact Form */
+    .contact-form {
+      background-color: var(--light);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .contact-form h2 {
+      font-size: 2rem;
+      color: var(--secondary);
+      margin-bottom: 30px;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      outline: none;
+      transition: var(--transition);
+    }
+    
+    .form-control:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(20, 40, 160, 0.2);
+    }
+    
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
+    }
+    
+    .btn {
+      display: inline-block;
+      background-color: var(--primary);
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .btn:hover {
+      background-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Map Section */
+    .map-section {
+      padding: 80px 0;
+      background-color: var(--light);
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .section-title h2 {
+      font-size: 2.2rem;
+      color: var(--secondary);
+      margin-bottom: 15px;
+    }
+    
+    .section-title p {
+      color: #777;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .map-container {
+      height: 450px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    
+    /* Service Centers */
+    .service-centers {
+      padding: 80px 0;
+      background-color: white;
+    }
+    
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .service-card {
+      background-color: var(--light);
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+    
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .service-card h3 {
+      font-size: 1.3rem;
+      color: var(--secondary);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .service-card h3 i {
+      margin-right: 10px;
+      color: var(--primary);
+    }
+    
+    .service-card p {
+      margin-bottom: 10px;
+    }
+    
+    .service-card .phone {
+      color: var(--primary);
+      font-weight: 500;
+    }
+    
+    .service-hours {
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid #ddd;
+    }
+    
+    .service-hours p {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--secondary);
+      color: white;
+      padding: 60px 0 20px;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    
+    .footer-column h3 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 40px;
+      height: 2px;
+      background-color: var(--accent);
+    }
+    
+    .footer-column ul li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-column a {
+      opacity: 0.8;
+      transition: var(--transition);
+    }
+    
+    .footer-column a:hover {
+      opacity: 1;
+      color: var(--accent);
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+    
+    /* Newsletter */
+    .newsletter {
+      display: flex;
+      margin-top: 20px;
+    }
+    
+    .newsletter input {
+      flex: 1;
+      padding: 12px 15px;
+      border: none;
+      border-radius: 30px 0 0 30px;
+      outline: none;
+    }
+    
+    .newsletter button {
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      padding: 0 20px;
+      border-radius: 0 30px 30px 0;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .newsletter button:hover {
+      background-color: #2aa8e0;
+    }
+    
+    /* Back to top button */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--primary);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 999;
+    }
+    
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      background-color: var(--accent);
+    }
+    
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: var(--primary);
+      color: white;
+      padding: 15px 25px;
+      border-radius: 5px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      z-index: 1000;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.5s ease;
+    }
+    
+    .toast.active {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact-info {
+        order: 2;
+      }
+      
+      .contact-form {
+        order: 1;
+        margin-bottom: 50px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .header-container {
+        padding: 10px 0;
+      }
+      
+      nav ul {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--secondary);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      
+      nav ul.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      nav li {
+        margin: 15px 0;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .page-header {
+        padding: 40px 0;
+      }
+      
+      .page-header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .map-container {
+        height: 350px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .page-header h1 {
+        font-size: 1.6rem;
+      }
+      
+      .contact-form {
+        padding: 30px 20px;
+      }
+      
+      .contact-form h2, .contact-info h2, .section-title h2 {
+        font-size: 1.8rem;
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung Logo">
+      </a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav>
+        <ul id="navMenu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="contact.html" class="active">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-header">
+    <div class="container">
+      <h1>Hubungi Kami</h1>
+      <p>Kami siap membantu Anda dengan pertanyaan, dukungan, atau informasi tentang produk Samsung</p>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2>Informasi Kontak</h2>
+          <p>Jika Anda memiliki pertanyaan tentang produk Samsung, membutuhkan dukungan teknis, atau ingin mengetahui informasi lebih lanjut tentang layanan kami, jangan ragu untuk menghubungi kami melalui salah satu cara di bawah ini.</p>
+          
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-text">
+                <h3>Alamat Kantor</h3>
+                <p>Samsung Electronics Indonesia<br>Gedung Menara Mulia Lt. 5<br>Jl. Jend. Gatot Subroto Kav. 9-11<br>Jakarta 12930, Indonesia</p>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div class="contact-text">
+                <h3>Telepon</h3>
+                <p>Customer Service: 0800-112-8888<br>Kantor: (021) 5299-7777</p>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-text">
+                <h3>Email</h3>
+                <p>cs.indonesia@samsung.com<br>info.indonesia@samsung.com</p>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="contact-text">
+                <h3>Jam Operasional</h3>
+                <p>Senin - Jumat: 08:00 - 17:00 WIB<br>Sabtu: 09:00 - 15:00 WIB<br>Minggu & Hari Libur: Tutup</p>
+              </div>
+            </div>
+          </div>
+          
+          <h3>Ikuti Kami</h3>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        
+        <div class="contact-form">
+          <h2>Kirim Pesan</h2>
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name">Nama Lengkap</label>
+              <input type="text" id="name" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="phone">Nomor Telepon</label>
+              <input type="tel" id="phone" class="form-control">
+            </div>
+            
+            <div class="form-group">
+              <label for="subject">Subjek</label>
+              <input type="text" id="subject" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Pesan</label>
+              <textarea id="message" class="form-control" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn">Kirim Pesan</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="map-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Lokasi Kami</h2>
+        <p>Kunjungi kantor Samsung Electronics Indonesia di Jakarta</p>
+      </div>
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2904357243077!2d106.82271491476908!3d-6.224159395493508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3f03383750d%3A0x1caa64ed97a2b9!2sMenara%20Mulia!5e0!3m2!1sen!2sid!4v1652345678901!5m2!1sen!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-centers">
+    <div class="container">
+      <div class="section-title">
+        <h2>Service Center</h2>
+        <p>Kunjungi Samsung Service Center terdekat untuk mendapatkan layanan perbaikan dan dukungan produk</p>
+      </div>
+      <div class="service-grid">
+        <div class="service-card">
+          <h3><i class="fas fa-tools"></i> Samsung Service Center Jakarta Pusat</h3>
+          <p>Mall Ambassador Lt. 3 No. 3<br>Jl. Prof. Dr. Satrio, Kuningan<br>Jakarta Pusat 12940</p>
+          <p class="phone">(021) 5793-7000</p>
+          <div class="service-hours">
+            <p><span>Senin - Jumat:</span> <span>10:00 - 18:00 WIB</span></p>
+            <p><span>Sabtu:</span> <span>10:00 - 16:00 WIB</span></p>
+            <p><span>Minggu:</span> <span>Tutup</span></p>
+          </div>
+        </div>
+        <div class="service-card">
+          <h3><i class="fas fa-tools"></i> Samsung Service Center Jakarta Selatan</h3>
+          <p>Plaza Semanggi Lt. 2<br>Jl. Jend. Sudirman Kav. 50<br>Jakarta Selatan 12930</p>
+          <p class="phone">(021) 2553-5050</p>
+          <div class="service-hours">
+            <p><span>Senin - Jumat:</span> <span>10:00 - 18:00 WIB</span></p>
+            <p><span>Sabtu:</span> <span>10:00 - 16:00 WIB</span></p>
+            <p><span>Minggu:</span> <span>Tutup</span></p>
+          </div>
+        </div>
+        <div class="service-card">
+          <h3><i class="fas fa-tools"></i> Samsung Service Center Surabaya</h3>
+          <p>Tunjungan Plaza 4 Lt. 4 No. 14-15<br>Jl. Basuki Rahmat 8-12<br>Surabaya 60261</p>
+          <p class="phone">(031) 5311-2345</p>
+          <div class="service-hours">
+            <p><span>Senin - Jumat:</span> <span

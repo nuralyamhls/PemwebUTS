@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samsung Indonesia - Products</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #1428a0;
+      --secondary: #000;
+      --accent: #34c3ff;
+      --light: #f5f5f7;
+      --dark: #121212;
+      --text: #333;
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Samsung Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-color: var(--light);
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    ul {
+      list-style: none;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header Styles */
+    header {
+      background-color: var(--secondary);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      height: 30px;
+      margin-right: 10px;
+    }
+    
+    nav ul {
+      display: flex;
+    }
+    
+    nav li {
+      margin-left: 25px;
+      position: relative;
+    }
+    
+    nav a {
+      font-weight: 500;
+      padding: 5px 0;
+      transition: var(--transition);
+    }
+    
+    nav a:hover {
+      color: var(--accent);
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--accent);
+      transition: var(--transition);
+    }
+    
+    nav a:hover::after {
+      width: 100%;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    /* Page Header */
+    .page-header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+    }
+    
+    .page-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+    
+    .page-header p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    
+    /* Product Categories */
+    .product-categories {
+      padding: 60px 0;
+      background-color: white;
+    }
+    
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .category-card {
+      background-color: var(--light);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+    
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .category-img {
+      height: 200px;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .category-img img {
+      max-height: 180px;
+      object-fit: contain;
+    }
+    
+    .category-info {
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .category-info h3 {
+      margin-bottom: 10px;
+      color: var(--secondary);
+    }
+    
+    .btn {
+      display: inline-block;
+      background-color: var(--primary);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: var(--transition);
+      margin-top: 15px;
+    }
+    
+    .btn:hover {
+      background-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Featured Products */
+    .featured-products {
+      padding: 60px 0;
+      background-color: var(--light);
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .section-title h2 {
+      font-size: 2.2rem;
+      color: var(--secondary);
+      margin-bottom: 15px;
+    }
+    
+    .section-title p {
+      color: #777;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    
+    .product-card {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .product-img {
+      height: 200px;
+      background-color: var(--light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .product-img img {
+      max-height: 180px;
+      object-fit: contain;
+    }
+    
+    .product-info {
+      padding: 20px;
+    }
+    
+    .product-info h3 {
+      margin-bottom: 10px;
+      color: var(--secondary);
+    }
+    
+    .product-price {
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--secondary);
+      color: white;
+      padding: 60px 0 20px;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    
+    .footer-column h3 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 40px;
+      height: 2px;
+      background-color: var(--accent);
+    }
+    
+    .footer-column ul li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-column a {
+      opacity: 0.8;
+      transition: var(--transition);
+    }
+    
+    .footer-column a:hover {
+      opacity: 1;
+      color: var(--accent);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      transition: var(--transition);
+    }
+    
+    .social-links a:hover {
+      background-color: var(--accent);
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+    
+    /* Newsletter */
+    .newsletter {
+      display: flex;
+      margin-top: 20px;
+    }
+    
+    .newsletter input {
+      flex: 1;
+      padding: 12px 15px;
+      border: none;
+      border-radius: 30px 0 0 30px;
+      outline: none;
+    }
+    
+    .newsletter button {
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      padding: 0 20px;
+      border-radius: 0 30px 30px 0;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .newsletter button:hover {
+      background-color: #2aa8e0;
+    }
+    
+    /* Back to top button */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--primary);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 999;
+    }
+    
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      background-color: var(--accent);
+    }
+    
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: var(--primary);
+      color: white;
+      padding: 15px 25px;
+      border-radius: 5px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      z-index: 1000;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.5s ease;
+    }
+    
+    .toast.active {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .page-header h1 {
+        font-size: 2.2rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .header-container {
+        padding: 10px 0;
+      }
+      
+      nav ul {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--secondary);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      
+      nav ul.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      nav li {
+        margin: 15px 0;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .page-header {
+        padding: 40px 0;
+      }
+      
+      .page-header h1 {
+        font-size: 1.8rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .page-header h1 {
+        font-size: 1.6rem;
+      }
+      
+      .section-title h2 {
+        font-size: 1.8rem;
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung Logo">
+      </a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav>
+        <ul id="navMenu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html" class="active">Products</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-header">
+    <div class="container">
+      <h1>Produk Samsung</h1>
+      <p>Temukan rangkaian produk Samsung terbaru dengan teknologi terdepan untuk memenuhi kebutuhan digital Anda</p>
+    </div>
+  </section>
+
+  <section class="product-categories">
+    <div class="container">
+      <div class="section-title">
+        <h2>Kategori Produk</h2>
+        <p>Pilih kategori produk Samsung yang sesuai dengan kebutuhan Anda</p>
+      </div>
+      <div class="category-grid">
+        <div class="category-card">
+          <div class="category-img">
+            <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Smartphones">
+          </div>
+          <div class="category-info">
+            <h3>Smartphones</h3>
+            <p>Galaxy S, Galaxy Z, Galaxy A Series</p>
+            <a href="#" class="btn">Lihat Semua</a>
+          </div>
+        </div>
+        <div class="category-card">
+          <div class="category-img">
+            <img src="https://images.unsplash.com/photo-1589739900243-4b52cd9dd8df?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Tablets">
+          </div>
+          <div class="category-info">
+            <h3>Tablets</h3>
+            <p>Galaxy Tab S, Galaxy Tab A Series</p>
+            <a href="#" class="btn">Lihat Semua</a>
+          </div>
+        </div>
+        <div class="category-card">
+          <div class="category-img">
+            <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Wearables">
+          </div>
+          <div class="category-info">
+            <h3>Wearables</h3>
+            <p>Galaxy Watch, Galaxy Buds Series</p>
+            <a href="#" class="btn">Lihat Semua</a>
+          </div>
+        </div>
+        <div class="category-card">
+          <div class="category-img">
+            <img src="https://images.unsplash.com/photo-1601944179066-29b8f7e31d3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="TV & Audio">
+          </div>
+          <div class="category-info">
+            <h3>TV & Audio</h3>
+            <p>QLED, Neo QLED, Soundbar Series</p>
+            <a href="#" class="btn">Lihat Semua</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured-products">
+    <div class="container">
+      <div class="section-title">
+        <h2>Produk Unggulan</h2>
+        <p>Produk terbaru dan terbaik dari Samsung dengan teknologi terdepan</p>
+      </div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Galaxy S25 Ultra">
+          </div>
+          <div class="product-info">
+            <h3>Galaxy S25 Ultra</h3>
+            <p>Smartphone premium dengan kamera 200MP</p>
+            <div class="product-price">Rp 19.999.000</div>
+            <a href="#" class="btn">Lihat Detail</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1659945563337-3f537a1d1f3c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Galaxy Z Fold 7">
+          </div>
+          <div class="product-info">
+            <h3>Galaxy Z Fold 7</h3>
+            <p>Smartphone lipat dengan layar fleksibel</p>
+            <div class="product-price">Rp 24.999.000</div>
+            <a href="#" class="btn">Lihat Detail</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1589739900243-4b52cd9dd8df?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Galaxy Tab S10">
+          </div>
+          <div class="product-info">
+            <h3>Galaxy Tab S10</h3>
+            <p>Tablet premium untuk produktivitas</p>
+            <div class="product-price">Rp 14.999.000</div>
+            <a href="#" class="btn">Lihat Detail</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1601944179066-29b8f7e31d3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Neo QLED 8K TV">
+          </div>
+          <div class="product-info">
+            <h3>Neo QLED 8K TV</h3>
+            <p>TV premium dengan resolusi 8K</p>
+            <div class="product-price">Rp 49.999.000</div>
+            <a href="#" class="btn">Lihat Detail</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Galaxy Watch 7">
+          </div>
+          <div class="product-info">
+            <h3>Galaxy Watch 7</h3>
+            <p>Smartwatch dengan fitur kesehatan lengkap</p>
+            <div class="product-price">Rp 4.999.000</div>
+            <a href="#" class="btn">Lihat Detail</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Galaxy Buds 3 Pro">
+          </div>
+          <div class="product-info">
+            <h3>Galaxy Buds 3 Pro</h3>
+            <p>Earbuds dengan noise cancelling</p>
+            <div class="product-price">Rp 2.999.000</div>
+            <a href="#" class="btn">Lihat Detail</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Samsung Indonesia</h3>
+          <p>Samsung Electronics Indonesia adalah perusahaan elektronik terkemuka yang menyediakan produk inovatif untuk konsumen Indonesia.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>Produk</h3>
+          <ul>
+            <li><a href="#">Smartphone</a></li>
+            <li><a href="#">Tablet</a></li>
+            <li><a href="#">TV & Audio</a></li>
+            <li><a href="#">Home Appliances</a></li>
+            <li><a href="#">Monitors</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">Pusat Bantuan</a></li>
+            <li><a href="#">Service Center</a></li>
+            <li><a href="#">Download</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Kontak</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Berlangganan</h3>
+          <p>Dapatkan informasi terbaru tentang produk dan promo Samsung</p>
+          <div class="newsletter">
+            <input type="email" placeholder="Email Anda" id="newsletterEmail">
+            <button id="newsletterSubmit"><i class="fas fa-paper-plane"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; 2025 Samsung Indonesia. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Back to Top Button
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('active');
+      } else {
+        backToTopBtn.classList.remove('active');
+      }
+    });
+    
+    backToTopBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // Toast Notification Function
+    function showToast(message, duration = 5000) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('active');
+      
+      setTimeout(() => {
+        toast.classList.remove('active');
+      }, duration);
+    }
+    
+    // Newsletter Subscription
+    const newsletterSubmit = document.getElementById('newsletterSubmit');
+    const newsletterEmail = document.getElementById('newsletterEmail');
+    
+    newsletterSubmit.addEventListener('click', () => {
+      if (newsletterEmail.value.trim() !== '' && newsletterEmail.value.includes('@')) {
+        showToast('Terima kasih telah berlangganan newsletter kami!');
+        newsletterEmail.value = '';
+      } else {
+        showToast('Silakan masukkan alamat email yang valid.');
+      }
+    });
+    
+    // Product Detail Buttons
+    const detailButtons = document.querySelectorAll('.btn');
+    
+    detailButtons.forEach(btn => {
+      if (btn.textContent === 'Lihat Detail' || btn.textContent === 'Lihat Semua') {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const productName = btn.closest('.product-info')?.querySelector('h3')?.textContent || 
+                             btn.closest('.category-info')?.querySelector('h3')?.textContent || 
+                             'produk';
+          showToast(`Anda akan diarahkan ke halaman detail ${productName}`);
+        });
+      }
+    });
+    
+    // Welcome Message
+    document.addEventListener('DOMContentLoaded', () => {
+      showToast('Selamat datang di halaman Produk Samsung Indonesia!');
+    });
+  </script>
+</body>
+</html>

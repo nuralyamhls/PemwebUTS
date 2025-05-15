@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samsung Meluncurkan Galaxy S25 Ultra dengan Teknologi AI Terbaru - Samsung Indonesia</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #1428a0;
+      --secondary: #000;
+      --accent: #34c3ff;
+      --light: #f5f5f7;
+      --dark: #121212;
+      --text: #333;
+      --text-light: #666;
+      --transition: all 0.3s ease;
+      --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      --hover-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Samsung Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background-color: var(--light);
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    ul {
+      list-style: none;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header Styles */
+    header {
+      background-color: var(--secondary);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      height: 30px;
+      margin-right: 10px;
+    }
+    
+    nav ul {
+      display: flex;
+    }
+    
+    nav li {
+      margin-left: 25px;
+      position: relative;
+    }
+    
+    nav a {
+      font-weight: 500;
+      padding: 5px 0;
+      transition: var(--transition);
+    }
+    
+    nav a:hover {
+      color: var(--accent);
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--accent);
+      transition: var(--transition);
+    }
+    
+    nav a:hover::after {
+      width: 100%;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    /* Breadcrumbs */
+    .breadcrumbs {
+      background-color: white;
+      padding: 15px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+    
+    .breadcrumbs-list {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .breadcrumbs-item {
+      display: flex;
+      align-items: center;
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+    
+    .breadcrumbs-item:not(:last-child)::after {
+      content: '/';
+      margin: 0 10px;
+      color: #ccc;
+    }
+    
+    .breadcrumbs-item a {
+      color: var(--primary);
+      transition: var(--transition);
+    }
+    
+    .breadcrumbs-item a:hover {
+      color: var(--accent);
+    }
+    
+    /* Main Content */
+    .main-content {
+      padding: 60px 0;
+    }
+    
+    .article-container {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 40px;
+    }
+    
+    /* Article Content */
+    .article-content {
+      background-color: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+    }
+    
+    .article-header {
+      padding: 30px;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .article-meta {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+    
+    .article-meta > div {
+      display: flex;
+      align-items: center;
+      margin-right: 20px;
+    }
+    
+    .article-meta i {
+      margin-right: 5px;
+      color: var(--primary);
+    }
+    
+    .article-title {
+      font-size: 2.2rem;
+      color: var(--secondary);
+      margin-bottom: 15px;
+      line-height: 1.3;
+    }
+    
+    .article-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      font-weight: normal;
+    }
+    
+    .article-featured-img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+    
+    .article-body {
+      padding: 30px;
+    }
+    
+    .article-section {
+      margin-bottom: 40px;
+    }
+    
+    .section-title {
+      font-size: 1.8rem;
+      color: var(--secondary);
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background-color: var(--accent);
+    }
+    
+    .article-text {
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+      color: var(--text);
+      line-height: 1.8;
+    }
+    
+    .article-text p {
+      margin-bottom: 20px;
+    }
+    
+    .article-text strong {
+      color: var(--secondary);
+    }
+    
+    .article-text ul, .article-text ol {
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .article-text li {
+      margin-bottom: 10px;
+    }
+    
+    .article-img {
+      margin: 30px 0;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .article-img img {
+      width: 100%;
+    }
+    
+    .img-caption {
+      background-color: #f9f9f9;
+      padding: 15px;
+      font-size: 0.9rem;
+      color: var(--text-light);
+      text-align: center;
+      border-top: 1px solid #eee;
+    }
+    
+    /* Feature Comparison */
+    .feature-comparison {
+      margin: 30px 0;
+      overflow-x: auto;
+    }
+    
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 600px;
+    }
+    
+    .comparison-table th, .comparison-table td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .comparison-table th {
+      background-color: #f9f9f9;
+      font-weight: 600;
+      color: var(--secondary);
+    }
+    
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .comparison-table td:first-child {
+      font-weight: 500;
+    }
+    
+    /* Video Container */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      overflow: hidden;
+      margin: 30px 0;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    /* Quote Section */
+    .quote-section {
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      padding: 40px;
+      margin: 30px 0;
+      position: relative;
+    }
+    
+    .quote-text {
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--secondary);
+      line-height: 1.8;
+      position: relative;
+      padding-left: 30px;
+    }
+    
+    .quote-text::before {
+      content: '"';
+      font-size: 5rem;
+      color: var(--primary);
+      opacity: 0.2;
+      position: absolute;
+      top: -40px;
+      left: -20px;
+    }
+    
+    .quote-author {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .author-img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 15px;
+    }
+    
+    .author-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .author-info {
+      line-height: 1.4;
+    }
+    
+    .author-name {
+      font-weight: bold;
+      color: var(--secondary);
+    }
+    
+    .author-title {
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+    
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin: 30px 0;
+    }
+    
+    .gallery-item {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .gallery-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    
+    /* Article Footer */
+    .article-footer {
+      padding: 30px;
+      border-top: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    
+    .article-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    
+    .tag {
+      background-color: #f0f0f0;
+      padding: 5px 15px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      color: var(--text-light);
+      transition: var(--transition);
+    }
+    
+    .tag:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .article-share {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .share-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      transition: var(--transition);
+    }
+    
+    .share-btn:hover {
+      transform: translateY(-3px);
+    }
+    
+    .facebook {
+      background-color: #3b5998;
+    }
+    
+    .twitter {
+      background-color: #1da1f2;
+    }
+    
+    .linkedin {
+      background-color: #0077b5;
+    }
+    
+    .whatsapp {
+      background-color: #25d366;
+    }
+    
+    /* Author Bio */
+    .author-bio {
+      background-color: white;
+      border-radius: 15px;
+      padding: 30px;
+      margin-top: 40px;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      gap: 20px;
+    }
+    
+    .author-bio-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    
+    .author-bio-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .author-bio-content h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: var(--secondary);
+    }
+    
+    .author-bio-content p {
+      color: var(--text-light);
+      margin-bottom: 15px;
+    }
+    
+    .author-social {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .author-social a {
+      color: var(--text-light);
+      transition: var(--transition);
+    }
+    
+    .author-social a:hover {
+      color: var(--primary);
+    }
+    
+    /* Comments Section */
+    .comments-section {
+      background-color: white;
+      border-radius: 15px;
+      padding: 30px;
+      margin-top: 40px;
+      box-shadow: var(--card-shadow);
+    }
+    
+    .comments-title {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      color: var(--secondary);
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    .comments-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background-color: var(--accent);
+    }
+    
+    .comment {
+      display: flex;
+      gap: 20px;
+      padding-bottom: 30px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .comment:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    
+    .comment-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    
+    .comment-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .comment-content {
+      flex: 1;
+    }
+    
+    .comment-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    
+    .comment-author {
+      font-weight: bold;
+      color: var(--secondary);
+    }
+    
+    .comment-date {
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+    
+    .comment-text {
+      color: var(--text);
+      margin-bottom: 15px;
+    }
+    
+    .comment-actions {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .comment-actions a {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      transition: var(--transition);
+    }
+    
+    .comment-actions a i {
+      margin-right: 5px;
+    }
+    
+    .comment-actions a:hover {
+      color: var(--primary);
+    }
+    
+    /* Comment Form */
+    .comment-form {
+      margin-top: 40px;
+    }
+    
+    .comment-form-title {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      color: var(--secondary);
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--secondary);
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: var(--transition);
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(20, 40, 160, 0.1);
+    }
+    
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    
+    .form-btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .form-btn:hover {
+      background-color: var(--accent);
+    }
+    
+    /* Sidebar */
+    .sidebar {
+      position: sticky;
+      top: 100px;
+    }
+    
+    .sidebar-widget {
+      background-color: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      margin-bottom: 30px;
+    }
+    
+    .widget-title {
+      background-color: var(--primary);
+      color: white;
+      padding: 15px 20px;
+      font-size: 1.2rem;
+    }
+    
+    .widget-content {
+      padding: 20px;
+    }
+    
+    /* Table of Contents */
+    .toc-list {
+      list-style: none;
+    }
+    
+    .toc-item {
+      margin-bottom: 15px;
+      padding-left: 15px;
+      border-left: 2px solid transparent;
+      transition: var(--transition);
+    }
+    
+    .toc-item:hover, .toc-item.active {
+      border-left-color: var(--primary);
+    }
+    
+    .toc-link {
+      color: var(--text);
+      transition: var(--transition);
+      display: block;
+    }
+    
+    .toc-link:hover, .toc-link.active {
+      color: var(--primary);
+    }
+    
+    /* Related Articles */
+    .related-articles {
+      list-style: none;
+    }
+    
+    .related-item {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .related-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    
+    .related-link {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .related-img {
+      flex: 0 0 80px;
+      height: 60px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    
+    .related-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .related-info {
+      flex: 1;
+    }
+    
+    .related-title {
+      font-size: 1rem;
+      color: var(--secondary);
+      margin-bottom: 5px;
+      transition: var(--transition);
+      line-height: 1.4;
+    }
+    
+    .related-link:hover .related-title {
+      color: var(--primary);
+    }
+    
+    .related-date {
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+    
+    /* CTA Widget */
+    .cta-widget {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      color: white;
+      padding: 30px;
+      text-align: center;
+      border-radius: 15px;
+    }
+    
+    .cta-title {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+    
+    .cta-text {
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+    
+    .cta-btn {
+      display: inline-block;
+      background-color: white;
+      color: var(--primary);
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: var(--transition);
+    }
+    
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--secondary);
+      color: white;
+      padding: 60px 0 20px;
+      margin-top: 60px;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    
+    .footer-column h3 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 40px;
+      height: 2px;
+      background-color: var(--accent);
+    }
+    
+    .footer-column ul li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-column a {
+      opacity: 0.8;
+      transition: var(--transition);
+    }
+    
+    .footer-column a:hover {
+      opacity: 1;
+      color: var(--accent);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      transition: var(--transition);
+    }
+    
+    .social-links a:hover {
+      background-color: var(--accent);
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+    
+    /* Back to top button */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--primary);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 999;
+    }
+    
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      background-color: var(--accent);
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .animate {
+      animation: fadeIn 0.8s ease forwards;
+    }
+    
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+    .delay-3 { animation-delay: 0.6s; }
+    
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .article-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .sidebar {
+        position: static;
+        margin-top: 40px;
+      }
+      
+      .article-title {
+        font-size: 2rem;
+      }
+      
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .header-container {
+        padding: 10px 0;
+      }
+      
+      nav ul {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--secondary);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: var(--transition);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      
+      nav ul.active {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      
+      nav li {
+        margin: 15px 0;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .article-header, .article-body, .article-footer {
+        padding: 20px;
+      }
+      
+      .article-title {
+        font-size: 1.8rem;
+      }
+      
+      .article-featured-img {
+        height: 250px;
+      }
+      
+      .section-title {
+        font-size: 1.5rem;
+      }
+      
+      .quote-section {
+        padding: 30px 20px;
+      }
+      
+      .quote-text {
+        font-size: 1.1rem;
+      }
+      
+      .author-bio {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      
+      .author-social {
+        justify-content: center;
+      }
+      
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .article-title {
+        font-size: 1.5rem;
+      }
+      
+      .article-subtitle {
+        font-size: 1rem;
+      }
+      
+      .article-featured-img {
+        height: 200px;
+      }
+      
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+      
+      .comment {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      
+      .comment-header {
+        flex-direction: column;
+        gap: 5px;
+      }
+      
+      .comment-actions {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung Logo">
+      </a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav>
+        <ul id="navMenu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="breadcrumbs">
+    <div class="container">
+      <div class="breadcrumbs-list">
+        <div class="breadcrumbs-item"><a href="index.html">Home</a></div>
+        <div class="breadcrumbs-item"><a href="news.html">News</a></div>
+        <div class="breadcrumbs-item">Samsung Meluncurkan Galaxy S25 Ultra dengan Teknologi AI Terbaru</div>
+      </div>
+    </div>
+  </div>
+
+  <section class="main-content">
+    <div class="container">
+      <div class="article-container">
+        <div class="article-content animate">
+          <div class="article-header">
+            <div class="article-meta">
+              <div class="article-date">
+                <i class="far fa-calendar-alt"></i>
+                <span>14 Mei 2025</span>
+              </div>
+              <div class="article-author">
+                <i class="far fa-user"></i>
+                <span>Tim Editorial Samsung</span>
+              </div>
+              <div class="article-views">
+                <i class="far fa-eye"></i>
+                <span>1,245 views</span>
+              </div>
+            </div>
+            <h1 class="article-title">Samsung Meluncurkan Galaxy S25 Ultra dengan Teknologi AI Terbaru</h1>
+            <h2 class="article-subtitle">Flagship terbaru Samsung hadir dengan kemampuan AI yang revolusioner dan peningkatan performa kamera</h2>
+          </div>
+          
+          <img src="https://picsum.photos/id/1/1200/400" alt="Samsung Galaxy S25 Ultra" class="article-featured-img">
+          
+          <div class="article-body">
+            <div class="article-section" id="pengenalan">
+              <h2 class="section-title">Pengenalan Galaxy S25 Ultra</h2>
+              <div class="article-text">
+                <p>Samsung Electronics Indonesia hari ini secara resmi meluncurkan Galaxy S25 Ultra, smartphone flagship terbaru yang mengusung teknologi kecerdasan buatan (AI) paling canggih dari Samsung hingga saat ini. Peluncuran ini dilakukan dalam acara Samsung Galaxy Unpacked yang digelar di Jakarta pada 14 Mei 2025.</p>
+                
+                <p>Galaxy S25 Ultra hadir dengan desain premium yang menggabungkan kaca dan logam berkualitas tinggi, dengan pilihan warna Phantom Black, Phantom White, Emerald Green, dan Titanium Gray. Smartphone ini dilengkapi dengan layar Dynamic AMOLED 2X berukuran 6,9 inci dengan resolusi QHD+ dan refresh rate adaptif hingga 144Hz, menawarkan pengalaman visual yang luar biasa untuk berbagai kebutuhan.</p>
+                
+                <p>"Galaxy S25 Ultra mewakili langkah besar dalam evolusi smartphone Samsung, dengan fokus utama pada integrasi AI yang lebih mendalam untuk meningkatkan pengalaman pengguna," ujar Jaehoon Kim, President and CEO of Samsung Electronics Indonesia. "Kami percaya bahwa teknologi AI yang kami tanamkan dalam Galaxy S25 Ultra akan mengubah cara pengguna berinteraksi dengan smartphone mereka dan membuka kemungkinan baru yang belum pernah ada sebelumnya."</p>
+              </div>
+              
+              <div class="article-img">
+                <img src="https://picsum.photos/id/96/1200/600" alt="Samsung Galaxy S25 Ultra Design">
+                <div class="img-caption">Galaxy S25 Ultra hadir dengan desain premium dan empat pilihan warna menarik</div>
+              </div>
+            </div>
+            
+            <div class="article-section" id="ai-features">
+              <h2 class="section-title">Fitur AI Revolusioner</h2>
+              <div class="article-text">
+                <p>Salah satu keunggulan utama Galaxy S25 Ultra adalah Galaxy AI, ekosistem kecerdasan buatan yang terintegrasi secara mendalam dengan berbagai aspek smartphone. Galaxy AI memanfaatkan kombinasi AI on-device dan cloud-based untuk memberikan pengalaman yang personal, intuitif, dan aman bagi pengguna.</p>
+                
+                <p>Beberapa fitur AI unggulan dalam Galaxy S25 Ultra meliputi:</p>
+                <ul>
+                  <li><strong>AI Assistant Pro:</strong> Asisten virtual yang lebih cerdas dan kontekstual, mampu memahami perintah kompleks dan melakukan berbagai tugas secara berurutan.</li>
+                  <li><strong>Live Translate:</strong> Penerjemahan real-time untuk panggilan telepon dan video call dalam 55 bahasa, termasuk Bahasa Indonesia dengan dialek lokal.</li>
+                  <li><strong>Note Assist:</strong> Fitur untuk Samsung Notes yang dapat merangkum, mengategorikan, dan mentranskripsikan catatan secara otomatis.</li>
+                  <li><strong>Circle to Search Pro:</strong> Pengembangan dari fitur Circle to Search dengan kemampuan pencarian yang lebih komprehensif dan kontekstual.</li>
+                  <li><strong>Photo Assist:</strong> Serangkaian fitur AI untuk meningkatkan kualitas foto, termasuk penghapusan objek yang tidak diinginkan, perbaikan pencahayaan, dan generasi elemen baru dalam foto.</li>
+                </ul>
+                
+                <p>"Galaxy AI dirancang untuk menjadi asisten pribadi yang memahami kebutuhan pengguna dan memberikan solusi yang relevan," jelas Stephanie Choi, EVP & Head of Marketing of Mobile eXperience Business. "Dengan Galaxy S25 Ultra, kami ingin menunjukkan bahwa AI bukan hanya tentang teknologi canggih, tetapi tentang bagaimana teknologi tersebut dapat membuat hidup pengguna lebih mudah dan produktif."</p>
+              </div>
+            
+            <div class="article-section" id="camera">
+              <h2 class="section-title">Sistem Kamera Terdepan</h2>
+              <div class="article-text">
+                <p>Galaxy S25 Ultra dilengkapi dengan sistem kamera yang telah ditingkatkan secara signifikan, menggabungkan hardware canggih dengan pemrosesan AI untuk menghasilkan foto dan video berkualitas profesional dalam berbagai kondisi.</p>
+                
+                <p>Sistem kamera Galaxy S25 Ultra terdiri dari:</p>
+                <ul>
+                  <li><strong>Kamera Utama:</strong> 200MP dengan sensor 1/1.3" dan OIS</li>
+                  <li><strong>Ultra-Wide:</strong> 50MP dengan sensor 1/2.55" dan field of view 120°</li>
+                  <li><strong>Telephoto 1:</strong> 50MP dengan zoom optik 3x dan OIS</li>
+                  <li><strong>Telephoto 2:</strong> 50MP dengan zoom optik 10x dan OIS</li>
+                  <li><strong>Kamera Selfie:</strong> 50MP dengan autofocus dan wide angle</li>
+                </ul>
+                
+                <p>Dengan dukungan AI, sistem kamera Galaxy S25 Ultra menawarkan berbagai fitur canggih seperti:</p>
+                <ul>
+                  <li><strong>ProVisual Engine:</strong> Pemrosesan gambar berbasis AI yang meningkatkan detail, warna, dan dynamic range</li>
+                  <li><strong>Nightography Pro:</strong> Kemampuan fotografi malam hari yang ditingkatkan dengan noise reduction berbasis AI</li>
+                  <li><strong>Portrait Studio:</strong> Mode potret dengan efek pencahayaan dan latar belakang yang dapat disesuaikan</li>
+                  <li><strong>Video AI:</strong> Stabilisasi video yang ditingkatkan dan kemampuan untuk mengubah resolusi dan frame rate secara real-time</li>
+                </ul>
+              </div>
+              
+              <div class="gallery">
+                <div class="gallery-item">
+                  <img src="https://picsum.photos/id/119/400/400" alt="Galaxy S25 Ultra Camera Sample 1" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                  <img src="https://picsum.photos/id/237/400/400" alt="Galaxy S25 Ultra Camera Sample 2" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                  <img src="https://picsum.photos/id/26/400/400" alt="Galaxy S25 Ultra Camera Sample 3" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                  <img src="https://picsum.photos/id/65/400/400" alt="Galaxy S25 Ultra Camera Sample 4" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                  <img src="https://picsum.photos/id/240/400/400" alt="Galaxy S25 Ultra Camera Sample 5" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                  <img src="https://picsum.photos/id/160/400/400" alt="Galaxy S25 Ultra Camera Sample 6" class="gallery-img">
+                </div>
+              </div>
+            </div>
+            
+            <div class="article-section" id="performance">
+              <h2 class="section-title">Performa dan Daya Tahan</h2>
+              <div class="article-text">
+                <p>Galaxy S25 Ultra ditenagai oleh chipset Exynos 2500 terbaru yang diproduksi dengan proses 3nm, menawarkan peningkatan performa dan efisiensi energi yang signifikan dibandingkan generasi sebelumnya. Chipset ini terdiri dari CPU 10-core dengan konfigurasi 1+3+6 dan GPU yang 35% lebih cepat, serta Neural Processing Unit (NPU) khusus untuk menjalankan tugas AI.</p>
+                
+                <p>Smartphone ini tersedia dalam tiga varian memori:</p>
+                <ul>
+                  <li>12GB RAM + 256GB penyimpanan</li>
+                  <li>12GB RAM + 512GB penyimpanan</li>
+                  <li>16GB RAM + 1TB penyimpanan</li>
+                </ul>
+                
+                <p>Untuk daya tahan, Galaxy S25 Ultra dilengkapi dengan baterai berkapasitas 5,500mAh yang mendukung pengisian daya cepat 65W, pengisian nirkabel 15W, dan kemampuan berbagi daya nirkabel. Dengan optimasi AI, Samsung mengklaim bahwa Galaxy S25 Ultra dapat bertahan hingga 2 hari penggunaan normal dengan sekali pengisian.</p>
+              </div>
+              
+              <div class="feature-comparison">
+                <table class="comparison-table">
+                  <tr>
+                    <th>Fitur</th>
+                    <th>Galaxy S24 Ultra</th>
+                    <th>Galaxy S25 Ultra</th>
+                  </tr>
+                  <tr>
+                    <td>Chipset</td>
+                    <td>Exynos 2400</td>
+                    <td>Exynos 2500</td>
+                  </tr>
+                  <tr>
+                    <td>RAM</td>
+                    <td>8GB/12GB</td>
+                    <td>12GB/16GB</td>
+                  </tr>
+                  <tr>
+                    <td>Penyimpanan</td>
+                    <td>256GB/512GB/1TB</td>
+                    <td>256GB/512GB/1TB</td>
+                  </tr>
+                  <tr>
+                    <td>Baterai</td>
+                    <td>5,000mAh</td>
+                    <td>5,500mAh</td>
+                  </tr>
+                  <tr>
+                    <td>Pengisian Daya</td>
+                    <td>45W kabel, 15W nirkabel</td>
+                    <td>65W kabel, 15W nirkabel</td>
+                  </tr>
+                  <tr>
+                    <td>Layar</td>
+                    <td>6.8" 120Hz</td>
+                    <td>6.9" 144Hz</td>
+                  </tr>
+                  <tr>
+                    <td>Kamera Utama</td>
+                    <td>200MP</td>
+                    <td>200MP (sensor baru)</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            
+            <div class="article-section" id="ecosystem">
+              <h2 class="section-title">Ekosistem Galaxy</h2>
+              <div class="article-text">
+                <p>Galaxy S25 Ultra dirancang untuk bekerja secara mulus dengan ekosistem perangkat Samsung lainnya. Dengan fitur seperti Quick Share, Link to Windows, dan Samsung DeX, pengguna dapat dengan mudah berbagi konten dan melanjutkan pekerjaan di berbagai perangkat.</p>
+                
+                <p>Samsung juga mengumumkan bahwa Galaxy S25 Ultra akan menerima pembaruan sistem operasi dan keamanan selama 7 tahun, menunjukkan komitmen perusahaan terhadap dukungan jangka panjang dan keberlanjutan.</p>
+              </div>
+              
+              <div class="quote-section">
+                <div class="quote-text">
+                  "Galaxy S25 Ultra mewakili visi kami tentang masa depan smartphone, di mana AI tidak hanya menjadi fitur tambahan, tetapi terintegrasi secara mendalam ke dalam setiap aspek pengalaman pengguna. Kami percaya bahwa kombinasi hardware premium dan AI canggih akan membuka kemungkinan baru yang belum pernah ada sebelumnya."
+                </div>
+                <div class="quote-author">
+                  <div class="author-img">
+                    <img src="https://picsum.photos/id/1005/60/60" alt="TM Roh">
+                  </div>
+                  <div class="author-info">
+                    <div class="author-name">TM Roh</div>
+                    <div class="author-title">President & Head of Mobile eXperience Business, Samsung Electronics</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="article-section" id="availability">
+              <h2 class="section-title">Harga dan Ketersediaan</h2>
+              <div class="article-text">
+                <p>Galaxy S25 Ultra akan tersedia untuk pre-order di Indonesia mulai 15 Mei hingga 30 Mei 2025, dengan pengiriman dimulai pada 1 Juni 2025. Smartphone ini dapat dibeli melalui Samsung Experience Store, Samsung.com, dan mitra ritel resmi Samsung di seluruh Indonesia.</p>
+                
+                <p>Harga Galaxy S25 Ultra di Indonesia adalah sebagai berikut:</p>
+                <ul>
+                  <li>Galaxy S25 Ultra 12GB/256GB: Rp 19.999.000</li>
+                  <li>Galaxy S25 Ultra 12GB/512GB: Rp 21.999.000</li>
+                  <li>Galaxy S25 Ultra 16GB/1TB: Rp 24.999.000</li>
+                </ul>
+                
+                <p>Selama periode pre-order, Samsung menawarkan berbagai promo menarik, termasuk:</p>
+                <ul>
+                  <li>Bonus Galaxy Buds3 Pro untuk pembelian Galaxy S25 Ultra</li>
+                  <li>Trade-in dengan nilai tukar hingga Rp 8.000.000</li>
+                  <li>Cicilan 0% hingga 24 bulan</li>
+                  <li>Samsung Care+ gratis selama 1 tahun</li>
+                </ul>
+                
+                <p>"Kami sangat antusias untuk menghadirkan Galaxy S25 Ultra ke pasar Indonesia," kata Ricky Bunardi, Product Marketing Manager, Samsung Electronics Indonesia. "Dengan kombinasi teknologi AI terdepan, sistem kamera yang luar biasa, dan performa yang kuat, kami yakin Galaxy S25 Ultra akan menjadi pilihan utama bagi konsumen yang menginginkan pengalaman smartphone premium."</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="article-footer">
+            <div class="article-tags">
+              <a href="#" class="tag">Samsung</a>
+              <a href="#" class="tag">Galaxy S25 Ultra</a>
+              <a href="#" class="tag">Smartphone</a>
+              <a href="#" class="tag">AI</a>
+              <a href="#" class="tag">Teknologi</a>
+            </div>
+            <div class="article-share">
+              <a href="#" class="share-btn facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="share-btn twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="share-btn linkedin">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" class="share-btn whatsapp">
+                <i class="fab fa-whatsapp"></i>
+              </a>
+            </div>
+          </div>
+          
+          <div class="author-bio">
+            <div class="author-bio-img">
+              <img src="https://picsum.photos/id/1012/100/100" alt="Tim Editorial Samsung">
+            </div>
+            <div class="author-bio-content">
+              <h3>Tim Editorial Samsung</h3>
+              <p>Tim Editorial Samsung Indonesia bertanggung jawab untuk menyajikan berita terbaru, ulasan produk, dan informasi seputar teknologi Samsung. Tim ini terdiri dari para profesional di bidang teknologi dan komunikasi yang berdedikasi untuk memberikan konten berkualitas tinggi kepada pembaca.</p>
+              <div class="author-social">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="comments-section">
+            <h3 class="comments-title">Komentar (3)</h3>
+            
+            <div class="comment">
+              <div class="comment-avatar">
+                <img src="https://picsum.photos/id/1000/60/60" alt="Budi Santoso">
+              </div>
+              <div class="comment-content">
+                <div class="comment-header">
+                  <div class="comment-author">Budi Santoso</div>
+                  <div class="comment-date">14 Mei 2025, 15:30</div>
+                </div>
+                <div class="comment-text">
+                  <p>Fitur AI-nya keren banget! Penasaran sama performa kameranya di kondisi low light. Semoga bisa segera mencobanya langsung di Samsung Experience Store.</p>
+                </div>
+                <div class="comment-actions">
+                  <a href="#"><i class="far fa-thumbs-up"></i> Like (5)</a>
+                  <a href="#"><i class="far fa-comment"></i> Reply</a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="comment">
+              <div class="comment-avatar">
+                <img src="https://picsum.photos/id/1001/60/60" alt="Siti Rahayu">
+              </div>
+              <div class="comment-content">
+                <div class="comment-header">
+                  <div class="comment-author">Siti Rahayu</div>
+                  <div class="comment-date">14 Mei 2025, 16:45</div>
+                </div>
+                <div class="comment-text">
+                  <p>Harganya memang premium, tapi dengan fitur sebanyak itu dan dukungan update 7 tahun sepertinya worth it. Saya masih pakai S22 Ultra, sepertinya sudah waktunya upgrade nih.</p>
+                </div>
+                <div class="comment-actions">
+                  <a href="#"><i class="far fa-thumbs-up"></i> Like (3)</a>
+                  <a href="#"><i class="far fa-comment"></i> Reply</a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="comment">
+              <div class="comment-avatar">
+                <img src="https://picsum.photos/id/1002/60/60" alt="Andi Wijaya">
+              </div>
+              <div class="comment-content">
+                <div class="comment-header">
+                  <div class="comment-author">Andi Wijaya</div>
+                  <div class="comment-date">14 Mei 2025, 18:20</div>
+                </div>
+                <div class="comment-text">
+                  <p>Penasaran dengan perbandingan performa Exynos 2500 vs Snapdragon di negara lain. Tapi fitur AI-nya memang menarik, terutama Live Translate yang mendukung bahasa Indonesia dengan dialek lokal.</p>
+                </div>
+                <div class="comment-actions">
+                  <a href="#"><i class="far fa-thumbs-up"></i> Like (2)</a>
+                  <a href="#"><i class="far fa-comment"></i> Reply</a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="comment-form">
+              <h3 class="comment-form-title">Tinggalkan Komentar</h3>
+              <form>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="name" class="form-label">Nama</label>
+                    <input type="text" id="name" class="form-control" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" id="email" class="form-control" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="comment" class="form-label">Komentar</label>
+                  <textarea id="comment" class="form-control" required></textarea>
+                </div>
+                <button type="submit" class="form-btn">Kirim Komentar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+        <div class="sidebar animate delay-2">
+          <div class="sidebar-widget">
+            <h3 class="widget-title">Daftar Isi</h3>
+            <div class="widget-content">
+              <ul class="toc-list">
+                <li class="toc-item active"><a href="#pengenalan" class="toc-link">Pengenalan Galaxy S25 Ultra</a></li>
+                <li class="toc-item"><a href="#ai-features" class="toc-link">Fitur AI Revolusioner</a></li>
+                <li class="toc-item"><a href="#camera" class="toc-link">Sistem Kamera Terdepan</a></li>
+                <li class="toc-item"><a href="#performance" class="toc-link">Performa dan Daya Tahan</a></li>
+                <li class="toc-item"><a href="#ecosystem" class="toc-link">Ekosistem Galaxy</a></li>
+                <li class="toc-item"><a href="#availability" class="toc-link">Harga dan Ketersediaan</a></li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="sidebar-widget">
+            <h3 class="widget-title">Artikel Terkait</h3>
+            <div class="widget-content">
+              <ul class="related-articles">
+                <li class="related-item">
+                  <a href="#" class="related-link">
+                    <div class="related-img">
+                      <img src="https://picsum.photos/id/160/80/60" alt="Galaxy Z Fold 7">
+                    </div>
+                    <div class="related-info">
+                      <h4 class="related-title">Samsung Galaxy Z Fold 7 dan Z Flip 7 Akan Segera Hadir di Indonesia</h4>
+                      <div class="related-date">8 Mei 2025</div>
+                    </div>
+                  </a>
+                </li>
+                <li class="related-item">
+                  <a href="#" class="related-link">
+                    <div class="related-img">
+                      <img src="https://picsum.photos/id/119/80/60" alt="Galaxy Watch 7">
+                    </div>
+                    <div class="related-info">
+                      <h4 class="related-title">Galaxy Watch 7 Hadir dengan Fitur Kesehatan yang Lebih Lengkap</h4>
+                      <div class="related-date">28 April 2025</div>
+                    </div>
+                  </a>
+                </li>
+                <li class="related-item">
+                  <a href="#" class="related-link">
+                    <div class="related-img">
+                      <img src="https://picsum.photos/id/96/80/60" alt="Neo QLED">
+                    </div>
+                    <div class="related-info">
+                      <h4 class="related-title">Neo QLED Terbaru: Pengalaman Visual yang Lebih Imersif</h4>
+                      <div class="related-date">12 Mei 2025</div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="cta-widget">
+            <h3 class="cta-title">Pre-Order Sekarang</h3>
+            <p class="cta-text">Dapatkan Galaxy S25 Ultra dengan berbagai penawaran menarik selama periode pre-order</p>
+            <a href="#" class="cta-btn">Pre-Order</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Samsung Indonesia</h3>
+          <p>Samsung Electronics Indonesia adalah perusahaan elektronik terkemuka yang menyediakan produk inovatif untuk konsumen Indonesia.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>Produk</h3>
+          <ul>
+            <li><a href="#">Smartphone</a></li>
+            <li><a href="#">Tablet</a></li>
+            <li><a href="#">TV & Audio</a></li>
+            <li><a href="#">Home Appliances</a></li>
+            <li><a href="#">Monitors</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">Pusat Bantuan</a></li>
+            <li><a href="#">Service Center</a></li>
+            <li><a href="#">Download</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Kontak</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Berlangganan</h3>
+          <p>Dapatkan informasi terbaru tentang produk dan promo Samsung</p>
+          <div class="newsletter">
+            <input type="email" placeholder="Email Anda">
+            <button><i class="fas fa-paper-plane"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; 2025 Samsung Electronics Indonesia. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Back to Top Button
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('active');
+      } else {
+        backToTopBtn.classList.remove('active');
+      }
+    });
+    
+    backToTopBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // Table of Contents Active State
+    const sections = document.querySelectorAll('.article-section');
+    const tocLinks = document.querySelectorAll('.toc-link');
+    
+    window.addEventListener('scroll', () => {
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= (sectionTop - 200)) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').substring(1) === current) {
+          link.classList.add('active');
+        }
+      });
+    });
+    
+    // Smooth Scroll for TOC Links
+    document.querySelectorAll('.toc-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        window.scrollTo({
+          top: targetElement.offsetTop - 100,
+          behavior: 'smooth'
+        });
+      });
+    });
+    
+    // Animate elements when they come into view
+    document.addEventListener('DOMContentLoaded', () => {
+      const animatedElements = document.querySelectorAll('.animate');
+      
+      const elementObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+            elementObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      animatedElements.forEach(element => {
+        element.style.opacity = 0;
+        element.style.transform = 'translateY(20px)';
+        elementObserver.observe(element);
+      });
+    });
+    
+    // Gallery Image Lightbox
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    
+    galleryItems.forEach(item => {
+      item.addEventListener('click', function() {
+        const imgSrc = this.querySelector('img').getAttribute('src');
+        const lightbox = document.createElement('div');
+        lightbox.className = 'lightbox';
+        lightbox.innerHTML = `
+          <div class="lightbox-content">
+            <img src="${imgSrc}" alt="Lightbox Image">
+            <span class="lightbox-close">&times;</span>
+          </div>
+        `;
+        document.body.appendChild(lightbox);
+        
+        lightbox.addEventListener('click', function(e) {
+          if (e.target.className === 'lightbox' || e.target.className === 'lightbox-close') {
+            this.remove();
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samsung Indonesia - Home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #1428a0;
+      --secondary: #000;
+      --accent: #34c3ff;
+      --light: #f5f5f7;
+      --dark: #121212;
+      --text: #333;
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Samsung Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-color: var(--light);
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    ul {
+      list-style: none;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header Styles */
+    header {
+      background-color: var(--secondary);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      height: 30px;
+      margin-right: 10px;
+    }
+    
+    nav ul {
+      display: flex;
+    }
+    
+    nav li {
+      margin-left: 25px;
+      position: relative;
+    }
+    
+    nav a {
+      font-weight: 500;
+      padding: 5px 0;
+      transition: var(--transition);
+    }
+    
+    nav a:hover {
+      color: var(--accent);
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--accent);
+      transition: var(--transition);
+    }
+    
+    nav a:hover::after {
+      width: 100%;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      color: white;
+      padding: 80px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+    
+    .hero-img {
+      margin: 40px auto 0;
+      max-width: 600px;
+      position: relative;
+    }
+    
+    .hero-img img {
+      border-radius: 10px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+    
+    .btn {
+      display: inline-block;
+      background-color: white;
+      color: var(--primary);
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: var(--transition);
+      margin: 0 10px 10px 0;
+      cursor: pointer;
+    }
+    
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      border: 2px solid white;
+      color: white;
+    }
+    
+    /* Features Section */
+    .features {
+      padding: 80px 0;
+      background-color: white;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--secondary);
+      margin-bottom: 15px;
+    }
+    
+    .section-title p {
+      color: #777;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .feature-card {
+      background-color: var(--light);
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      transition: var(--transition);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    
+    .feature-card h3 {
+      margin-bottom: 15px;
+      color: var(--secondary);
+    }
+    
+    /* Products Section */
+    .products {
+      padding: 80px 0;
+      background-color: var(--light);
+    }
+    
+    .product-slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      margin: 0 -20px;
+      padding: 20px;
+      gap: 20px;
+    }
+    
+    .product-slider::-webkit-scrollbar {
+      height: 8px;
+    }
+    
+    .product-slider::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+    
+    .product-slider::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 10px;
+    }
+    
+    .product-slider::-webkit-scrollbar-thumb:hover {
+      background: var(--primary);
+    }
+    
+    .product-card {
+      flex: 0 0 300px;
+      scroll-snap-align: start;
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .product-img {
+      height: 200px;
+      background-color: var(--light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .product-img img {
+      max-height: 180px;
+      object-fit: contain;
+    }
+    
+    .product-info {
+      padding: 20px;
+    }
+    
+    .product-info h3 {
+      margin-bottom: 10px;
+      color: var(--secondary);
+    }
+    
+    .product-price {
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+    
+    /* CTA Section */
+    .cta {
+      background-color: var(--primary);
+      color: white;
+      padding: 80px 0;
+      text-align: center;
+      background-image: linear-gradient(135deg, rgba(20, 40, 160, 0.9) 0%, rgba(52, 195, 255, 0.8) 100%), url('https://images.unsplash.com/photo-1616077168079-7e09a677fb2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    
+    .cta h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    
+    .cta p {
+      margin-bottom: 30px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--secondary);
+      color: white;
+      padding: 60px 0 20px;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    
+    .footer-column h3 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 40px;
+      height: 2px;
+      background-color: var(--accent);
+    }
+    
+    .footer-column ul li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-column a {
+      opacity: 0.8;
+      transition: var(--transition);
+    }
+    
+    .footer-column a:hover {
+      opacity: 1;
+      color: var(--accent);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      transition: var(--transition);
+    }
+    
+    .social-links a:hover {
+      background-color: var(--accent);
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+    
+    /* Newsletter */
+    .newsletter {
+      display: flex;
+      margin-top: 20px;
+    }
+    
+    .newsletter input {
+      flex: 1;
+      padding: 12px 15px;
+      border: none;
+      border-radius: 30px 0 0 30px;
+      outline: none;
+    }
+    
+    .newsletter button {
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      padding: 0 20px;
+      border-radius: 0 30px 30px 0;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .newsletter button:hover {
+      background-color: #2aa8e0;
+    }
+    
+    /* Back to top button */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--primary);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 999;
+    }
+    
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      background-color: var(--accent);
+    }
+    
+    /* Modal */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .modal-content {
+      background-color: white;
+      border-radius: 10px;
+      max-width: 500px;
+      width: 90%;
+      padding: 30px;
+      position: relative;
+      transform: translateY(-50px);
+      transition: all 0.3s ease;
+    }
+    
+    .modal.active .modal-content {
+      transform: translateY(0);
+    }
+    
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #777;
+    }
+    
+    .modal-title {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--secondary);
+    }
+    
+    .modal-form input,
+    .modal-form textarea {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      outline: none;
+    }
+    
+    .modal-form input:focus,
+    .modal-form textarea:focus {
+      border-color: var(--accent);
+    }
+    
+    .modal-form button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: var(--transition);
+      width: 100%;
+    }
+    
+    .modal-form button:hover {
+      background-color: var(--accent);
+    }
+    
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: var(--primary);
+      color: white;
+      padding: 15px 25px;
+      border-radius: 5px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      z-index: 1000;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.5s ease;
+    }
+    
+    .toast.active {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    /* Product Detail Page */
+    .product-detail {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      z-index: 1500;
+      overflow-y: auto;
+      transform: translateX(100%);
+      transition: transform 0.5s ease;
+    }
+    
+    .product-detail.active {
+      transform: translateX(0);
+      display: block;
+    }
+    
+    .product-detail-header {
+      background-color: var(--secondary);
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .product-detail-close {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    .product-detail-content {
+      padding: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .product-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+    
+    .product-detail-image {
+      background-color: var(--light);
+      padding: 30px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .product-detail-image img {
+      max-width: 100%;
+      max-height: 400px;
+      object-fit: contain;
+    }
+    
+    .product-detail-info h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: var(--secondary);
+    }
+    
+    .product-detail-price {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    
+    .product-detail-description {
+      margin-bottom: 30px;
+    }
+    
+    .product-detail-specs {
+      margin-bottom: 30px;
+    }
+    
+    .product-detail-specs h3 {
+      margin-bottom: 15px;
+      color: var(--secondary);
+    }
+    
+    .specs-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+    
+    .specs-item {
+      background-color: var(--light);
+      padding: 15px;
+      border-radius: 5px;
+    }
+    
+    .specs-item strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--primary);
+    }
+    
+    .product-detail-actions {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .product-detail-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .header-container {
+        padding: 10px 0;
+      }
+      
+      nav ul {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--secondary);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      
+      nav ul.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      nav li {
+        margin: 15px 0;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .hero {
+        padding: 60px 0;
+      }
+      
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .product-card {
+        flex: 0 0 250px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .hero {
+        padding: 40px 0;
+      }
+      
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .product-card {
+        flex: 0 0 220px;
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg" alt="Samsung Logo">
+      </a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav>
+        <ul id="navMenu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-content">
+      <h1>Galaxy S25 Ultra</h1>
+      <p>Smartphone canggih dengan teknologi AI terbaru. Rasakan pengalaman mobile yang belum pernah Anda alami sebelumnya.</p>
+      <div class="hero-buttons">
+        <a href="#" class="btn buy-now-btn">Beli Sekarang</a>
+        <a href="#" class="btn btn-outline learn-more-btn">Pelajari Lebih Lanjut</a>
+      </div>
+      <div class="hero-img">
+        <img src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Galaxy S25 Ultra">
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container">
+      <div class="section-title">
+        <h2>Fitur Unggulan</h2>
+        <p>Temukan teknologi terbaru yang akan mengubah cara Anda menggunakan smartphone</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card" data-feature="camera">
+          <div class="feature-icon">
+            <i class="fas fa-camera"></i>
+          </div>
+          <h3>Kamera 200MP</h3>
+          <p>Abadikan momen spesial dengan detail yang luar biasa berkat sensor kamera 200MP terbaru.</p>
+        </div>
+        <div class="feature-card" data-feature="processor">
+          <div class="feature-icon">
+            <i class="fas fa-microchip"></i>
+          </div>
+          <h3>Prosesor Snapdragon 8 Gen 4</h3>
+          <p>Performa yang luar biasa dengan prosesor terbaru untuk gaming dan multitasking.</p>
+        </div>
+        <div class="feature-card" data-feature="ai">
+          <div class="feature-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3>Samsung AI</h3>
+          <p>Teknologi kecerdasan buatan yang memahami kebutuhan Anda dan menyesuaikan pengalaman pengguna.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="products">
+    <div class="container">
+      <div class="section-title">
+        <h2>Produk Terbaru</h2>
+        <p>Jelajahi rangkaian produk Samsung terbaru dengan teknologi terdepan</p>
+      </div>
+      <div class="product-slider">
+        <div class="product-card" data-product="s25">
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Galaxy S25">
+          </div>
+          <div class="product-info">
+            <h3>Galaxy S25</h3>
+            <p>Smartphone premium dengan performa tinggi</p>
+            <div class="product-price">Rp 12.999.000</div>
+            <a href="#" class="btn view-detail-btn">Lihat Detail</a>
+          </div>
+        </div>
+        <div class="product-card" data-product="zfold7">
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1659945563337-3f537a1d1f3c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Galaxy Z Fold 7">
+          </div>
+          <div class="product-info">
+            <h3>Galaxy Z Fold 7</h3>
+            <p>Smartphone lipat dengan layar fleksibel</p>
+            <div class="product-price">Rp 24.999.000</div>
+            <a href="#" class="btn view-detail-btn">Lihat Detail</a>
+          </div>
+        </div>
+        <div class="product-card" data-product="watch7">
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Galaxy Watch 7">
+          </div>
+          <div class="product-info">
+            <h3>Galaxy Watch 7</h3>
+            <p>Smartwatch dengan fitur kesehatan lengkap</p>
+            <div class="product-price">Rp 4.999.000</div>
+            <a href="#" class="btn view-detail-btn">Lihat Detail</a>
+          </div>
+        </div>
+        <div class="product-card" data-product="buds3">
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Galaxy Buds 3 Pro">
+          </div>
+          <div class="product-info">
+            <h3>Galaxy Buds 3 Pro</h3>
+            <p>Earbuds dengan noise cancelling</p>
+            <div class="product-price">Rp 2.999.000</div>
+            <a href="#" class="btn view-detail-btn">Lihat Detail</a>
+          </div>
+        </div>
+        <div class="product-card" data-product="tab10">
+          <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1589739900243-4b52cd9dd8df?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Galaxy Tab S10">
+          </div>
+          <div class="product-info">
+            <h3>Galaxy Tab S10</h3>
+            <p>Tablet premium untuk produktivitas</p>
+            <div class="product-price">Rp 14.999.000</div>
+            <a href="#" class="btn view-detail-btn">Lihat Detail</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>Dapatkan Penawaran Eksklusif</h2>
+      <p>Daftar sekarang dan dapatkan voucher diskon Rp 500.000 untuk pembelian produk Samsung terbaru</p>
+      <a href="#" class="btn register-now-btn">Daftar Sekarang</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Samsung Indonesia</h3>
+          <p>Samsung Electronics Indonesia adalah perusahaan elektronik terkemuka yang menyediakan produk inovatif untuk konsumen Indonesia.</p>
+          <div class="social-links">
+            <a href="#" class="social-link" data-platform="facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link" data-platform="twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link" data-platform="instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link" data-platform="youtube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>Produk</h3>
+          <ul>
+            <li><a href="products.html" class="footer-link" data-category="smartphone">Smartphone</a></li>
+            <li><a href="products.html" class="footer-link" data-category="tablet">Tablet</a></li>
+            <li><a href="products.html" class="footer-link" data-category="tv">TV & Audio</a></li>
+            <li><a href="products.html" class="footer-link" data-category="appliances">Home Appliances</a></li>
+            <li><a href="products.html" class="footer-link" data-category="monitors">Monitors</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#" class="footer-link" data-support="help">Pusat Bantuan</a></li>
+            <li><a href="#" class="footer-link" data-support="service">Service Center</a></li>
+            <li><a href="#" class="footer-link" data-support="download">Download</a></li>
+            <li><a href="#" class="footer-link" data-support="faq">FAQ</a></li>
+            <li><a href="contact.html" class="footer-link" data-support="contact">Kontak</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Berlangganan</h3>
+          <p>Dapatkan informasi terbaru tentang produk dan promo Samsung</p>
+          <div class="newsletter">
+            <input type="email" placeholder="Email Anda" id="newsletterEmail">
+            <button id="newsletterSubmit"><i class="fas fa-paper-plane"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; 2025 Samsung Indonesia. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- Modal -->
+  <div class="modal" id="contactModal">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+      <h2 class="modal-title">Hubungi Kami</h2>
+      <form class="modal-form" id="contactForm">
+        <input type="text" placeholder="Nama Lengkap" required>
+        <input type="email" placeholder="Email" required>
+        <input type="tel" placeholder="Nomor Telepon">
+        <textarea rows="4" placeholder="Pesan Anda" required></textarea>
+        <button type="submit">Kirim Pesan</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Product Detail Page -->
+  <div class="product-detail" id="productDetail">
+    <div class="product-detail-header">
+      <h2 id="productDetailTitle">Detail Produk</h2>
+      <button class="product-detail-close" id="productDetailClose"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="product-detail-content">
+      <div class="product-detail-grid">
+        <div class="product-detail-image">
+          <img id="productDetailImage" src="/placeholder.svg" alt="Product Image">
+        </div>
+        <div class="product-detail-info">
+          <h1 id="productDetailName"></h1>
+          <div class="product-detail-price" id="productDetailPrice"></div>
+          <div class="product-detail-description" id="productDetailDescription"></div>
+          <div class="product-detail-specs">
+            <h3>Spesifikasi</h3>
+            <div class="specs-list" id="productDetailSpecs">
+              <!-- Specs will be added dynamically -->
+            </div>
+          </div>
+          <div class="product-detail-actions">
+            <a href="#" class="btn" id="buyNowDetailBtn">Beli Sekarang</a>
+            <a href="#" class="btn btn-outline" id="addToCartBtn">Tambah ke Keranjang</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Back to Top Button
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('active');
+      } else {
+        backToTopBtn.classList.remove('active');
+      }
+    });
+    
+    backToTopBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // Product Slider Touch Events
+    const slider = document.querySelector('.product-slider');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    
+    slider.addEventListener('mousedown', (e) => {
+      isDown = true;
+      slider.classList.add('active');
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    });
+    
+    slider.addEventListener('mouseleave', () => {
+      isDown = false;
+      slider.classList.remove('active');
+    });
+    
+    slider.addEventListener('mouseup', () => {
+      isDown = false;
+      slider.classList.remove('active');
+    });
+    
+    slider.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 2;
+      slider.scrollLeft = scrollLeft - walk;
+    });
+    
+    // Welcome Message
+    document.addEventListener('DOMContentLoaded', () => {
+      showToast('Selamat datang di Website Samsung Indonesia!');
+    });
+    
+    // Toast Notification Function
+    function showToast(message, duration = 5000) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('active');
+      
+      setTimeout(() => {
+        toast.classList.remove('active');
+      }, duration);
+    }
+    
+    // Modal Functions
+    const contactModal = document.getElementById('contactModal');
+    const modalClose = document.getElementById('modalClose');
+    const contactForm = document.getElementById('contactForm');
+    
+    // Open Contact Modal
+    document.querySelector('.contact-link').addEventListener('click', (e) => {
+      // We'll let the default link behavior work instead of showing the modal
+      // This will navigate to contact.html
+    });
+    
+    // Close Modal
+    modalClose.addEventListener('click', () => {
+      contactModal.classList.remove('active');
+    });
+    
+    // Close Modal when clicking outside
+    contactModal.addEventListener('click', (e) => {
+      if (e.target === contactModal) {
+        contactModal.classList.remove('active');
+      }
+    });
+    
+    // Contact Form Submit
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      contactModal.classList.remove('active');
+      showToast('Pesan Anda telah terkirim. Kami akan menghubungi Anda segera!');
+    });
+    
+    // Newsletter Subscription
+    const newsletterSubmit = document.getElementById('newsletterSubmit');
+    const newsletterEmail = document.getElementById('newsletterEmail');
+    
+    newsletterSubmit.addEventListener('click', () => {
+      if (newsletterEmail.value.trim() !== '' && newsletterEmail.value.includes('@')) {
+        showToast('Terima kasih telah berlangganan newsletter kami!');
+        newsletterEmail.value = '';
+      } else {
+        showToast('Silakan masukkan alamat email yang valid.');
+      }
+    });
+    
+    // Product Detail Functions
+    const productDetail = document.getElementById('productDetail');
+    const productDetailClose = document.getElementById('productDetailClose');
+    const viewDetailBtns = document.querySelectorAll('.view-detail-btn');
+    
+    // Product Data
+    const products = {
+      s25: {
+        name: 'Galaxy S25',
+        price: 'Rp 12.999.000',
+        image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        description: 'Galaxy S25 adalah smartphone premium terbaru dari Samsung dengan performa tinggi dan fitur canggih. Dilengkapi dengan layar Dynamic AMOLED 2X 6.2 inci dengan refresh rate 120Hz dan prosesor Snapdragon 8 Gen 4 yang powerful.',
+        specs: [
+          { name: 'Layar', value: 'Dynamic AMOLED 2X 6.2"' },
+          { name: 'Prosesor', value: 'Snapdragon 8 Gen 4' },
+          { name: 'RAM', value: '12GB' },
+          { name: 'Penyimpanan', value: '256GB/512GB' },
+          { name: 'Kamera Utama', value: '108MP + 12MP + 10MP' },
+          { name: 'Kamera Depan', value: '40MP' },
+          { name: 'Baterai', value: '4500mAh' },
+          { name: 'OS', value: 'Android 15' }
+        ]
+      },
+      zfold7: {
+        name: 'Galaxy Z Fold 7',
+        price: 'Rp 24.999.000',
+        image: 'https://images.unsplash.com/photo-1659945563337-3f537a1d1f3c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        description: 'Galaxy Z Fold 7 adalah smartphone lipat terbaru dengan layar fleksibel yang inovatif. Nikmati pengalaman multitasking yang luar biasa dengan layar utama 7.6 inci dan layar cover 6.2 inci.',
+        specs: [
+          { name: 'Layar Utama', value: 'Dynamic AMOLED 2X 7.6"' },
+          { name: 'Layar Cover', value: 'Dynamic AMOLED 2X 6.2"' },
+          { name: 'Prosesor', value: 'Snapdragon 8 Gen 4' },
+          { name: 'RAM', value: '16GB' },
+          { name: 'Penyimpanan', value: '512GB/1TB' },
+          { name: 'Kamera Utama', value: '108MP + 12MP + 10MP' },
+          { name: 'Kamera Depan', value: '10MP (cover) + 4MP (under display)' },
+          { name: 'Baterai', value: '5000mAh' },
+          { name: 'OS', value: 'Android 15' }
+        ]
+      },
+      watch7: {
+        name: 'Galaxy Watch 7',
+        price: 'Rp 4.999.000',
+        image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        description: 'Galaxy Watch 7 adalah smartwatch premium dengan fitur kesehatan lengkap. Pantau kesehatan Anda dengan sensor BioActive yang dapat mengukur komposisi tubuh, detak jantung, tekanan darah, dan banyak lagi.',
+        specs: [
+          { name: 'Layar', value: 'Super AMOLED 1.4"' },
+          { name: 'Prosesor', value: 'Exynos W930' },
+          { name: 'RAM', value: '2GB' },
+          { name: 'Penyimpanan', value: '32GB' },
+          { name: 'Baterai', value: '590mAh' },
+          { name: 'Ketahanan Air', value: '5ATM + IP68' },
+          { name: 'Sensor', value: 'BioActive, ECG, Accelerometer, Gyro' },
+          { name: 'OS', value: 'Wear OS 5.0' }
+        ]
+      },
+      buds3: {
+        name: 'Galaxy Buds 3 Pro',
+        price: 'Rp 2.999.000',
+        image: 'https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        description: 'Galaxy Buds 3 Pro adalah earbuds premium dengan noise cancelling terbaik di kelasnya. Nikmati kualitas suara yang jernih dan bass yang powerful dengan driver dynamic 2-way.',
+        specs: [
+          { name: 'Driver', value: 'Dynamic 2-way' },
+          { name: 'ANC', value: 'Adaptive Noise Cancelling' },
+          { name: 'Baterai Earbuds', value: '8 jam (ANC off), 5 jam (ANC on)' },
+          { name: 'Baterai Total', value: '30 jam (dengan case)' },
+          { name: 'Konektivitas', value: 'Bluetooth 5.3' },
+          { name: 'Ketahanan Air', value: 'IPX7' },
+          { name: 'Fitur', value: '360 Audio, Voice Detect' },
+          { name: 'Warna', value: 'Phantom Black, White, Bora Purple' }
+        ]
+      },
+      tab10: {
+        name: 'Galaxy Tab S10',
+        price: 'Rp 14.999.000',
+        image: 'https://images.unsplash.com/photo-1589739900243-4b52cd9dd8df?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        description: 'Galaxy Tab S10 adalah tablet premium untuk produktivitas dan hiburan. Dengan layar Super AMOLED 12.4 inci dan S Pen yang disempurnakan, Tab S10 adalah perangkat ideal untuk bekerja dan berkreasi.',
+        specs: [
+          { name: 'Layar', value: 'Super AMOLED 12.4"' },
+          { name: 'Prosesor', value: 'Snapdragon 8 Gen 4' },
+          { name: 'RAM', value: '12GB/16GB' },
+          { name: 'Penyimpanan', value: '256GB/512GB/1TB' },
+          { name: 'Kamera Belakang', value: '13MP + 8MP (ultrawide)' },
+          { name: 'Kamera Depan', value: '12MP' },
+          { name: 'Baterai', value: '11200mAh' },
+          { name: 'OS', value: 'Android 15' }
+        ]
+      }
+    };
+    
+    // Open Product Detail
+    viewDetailBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const productCard = btn.closest('.product-card');
+        const productId = productCard.dataset.product;
+        const product = products[productId];
+        
+        // Set product details
+        document.getElementById('productDetailTitle').textContent = `Detail ${product.name}`;
+        document.getElementById('productDetailName').textContent = product.name;
+        document.getElementById('productDetailPrice').textContent = product.price;
+        document.getElementById('productDetailDescription').textContent = product.description;
+        document.getElementById('productDetailImage').src = product.image;
+        document.getElementById('productDetailImage').alt = product.name;
+        
+        // Set product specs
+        const specsContainer = document.getElementById('productDetailSpecs');
+        specsContainer.innerHTML = '';
+        product.specs.forEach(spec => {
+          const specItem = document.createElement('div');
+          specItem.className = 'specs-item';
+          specItem.innerHTML = `<strong>${spec.name}</strong>${spec.value}`;
+          specsContainer.appendChild(specItem);
+        });
+        
+        // Show product detail page
+        productDetail.classList.add('active');
+      });
+    });
+    
+    // Close Product Detail
+    productDetailClose.addEventListener('click', () => {
+      productDetail.classList.remove('active');
+    });
+    
+    // Buy Now Button
+    document.querySelector('.buy-now-btn').addEventListener('click', (e) => {
+      e.preventDefault();
+      showToast('Anda akan diarahkan ke halaman pembelian Galaxy S25 Ultra');
+    });
+    
+    // Learn More Button
+    document.querySelector('.learn-more-btn').addEventListener('click', (e) => {
+      e.preventDefault();
+      showToast('Anda akan diarahkan ke halaman informasi Galaxy S25 Ultra');
+    });
+    
+    // Buy Now Detail Button
+    document.getElementById('buyNowDetailBtn').addEventListener('click', (e) => {
+      e.preventDefault();
+      const productName = document.getElementById('productDetailName').textContent;
+      showToast(`Anda akan diarahkan ke halaman pembelian ${productName}`);
+      productDetail.classList.remove('active');
+    });
+    
+    // Add to Cart Button
+    document.getElementById('addToCartBtn').addEventListener('click', (e) => {
+      e.preventDefault();
+      const productName = document.getElementById('productDetailName').textContent;
+      showToast(`${productName} telah ditambahkan ke keranjang belanja`);
+    });
+    
+    // Register Now Button
+    document.querySelector('.register-now-btn').addEventListener('click', (e) => {
+      e.preventDefault();
+      contactModal.classList.add('active');
+    });
+    
+    // Feature Cards
+    const featureCards = document.querySelectorAll('.feature-card');
+    featureCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const feature = card.dataset.feature;
+        let featureInfo = '';
+        
+        switch(feature) {
+          case 'camera':
+            featureInfo = 'Kamera 200MP dengan teknologi Adaptive Pixel dan Nightography untuk foto yang detail bahkan dalam kondisi minim cahaya.';
+            break;
+          case 'processor':
+            featureInfo = 'Prosesor Snapdragon 8 Gen 4 dengan performa 35% lebih cepat dan efisiensi baterai 25% lebih baik.';
+            break;
+          case 'ai':
+            featureInfo = 'Samsung AI menawarkan fitur seperti AI Photo Editor, Live Translate, dan Circle to Search untuk pengalaman yang lebih personal.';
+            break;
+        }
+        
+        showToast(featureInfo, 7000);
+      });
+    });
+    
+    // Social Links
+    const socialLinks = document.querySelectorAll('.social-link');
+    socialLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const platform = link.dataset.platform;
+        showToast(`Anda akan diarahkan ke halaman ${platform} Samsung Indonesia`);
+      });
+    });
+    
+    // Footer Links
+    const footerLinks = document.querySelectorAll('.footer-link');
+    footerLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        // Let the default link behavior work for links with href attributes
+        if (link.getAttribute('href') && link.getAttribute('href') !== '#') {
+          return;
+        }
+        
+        e.preventDefault();
+        let message = '';
+        
+        if (link.dataset.category) {
+          message = `Anda akan diarahkan ke halaman produk ${link.dataset.category}`;
+        } else if (link.dataset.support) {
+          const supportType = link.dataset.support;
+          switch(supportType) {
+            case 'help':
+              message = 'Anda akan diarahkan ke Pusat Bantuan Samsung';
+              break;
+            case 'service':
+              message = 'Anda akan diarahkan ke daftar Service Center Samsung';
+              break;
+            case 'download':
+              message = 'Anda akan diarahkan ke halaman Download Samsung';
+              break;
+            case 'faq':
+              message = 'Anda akan diarahkan ke halaman FAQ Samsung';
+              break;
+            case 'contact':
+              // Let the default link behavior work
+              return;
+          }
+        }
+        
+        showToast(message);
+      });
+    });
+  </script>
+</body>
+</html>
